@@ -1,0 +1,52 @@
+import java.util.*;
+
+class Main {
+    
+    public static boolean ispalindrome(String str) {
+        
+        int n = str.length();
+        
+        if(n == 1) return true;
+        
+        int i = 0, j = n - 1;
+        
+        while(i < j) {
+            
+            if(!Character.isLetterOrDigit(str.charAt(i))) {
+                i++;
+            }
+            else if (!Character.isLetterOrDigit(str.charAt(j))) {
+                j--;
+            }
+            
+            else if(Character.toLowerCase(str.charAt(i)) != Character.toLowerCase(str.charAt(j))) {
+                return false;
+            }
+            else {
+                i++;
+                j--;
+            }
+        }
+        
+        return true;
+    }
+    public static void main(String[] args) {
+        
+        Scanner sc = new Scanner(System.in);
+        int testcases = sc.nextInt();
+        sc.nextLine();
+        
+        while(testcases-- > 0) {
+            String str = sc.nextLine();
+            
+            if(ispalindrome(str)) {
+                System.out.println("Yes");
+            }
+            else {
+                System.out.println("No");
+            }
+        }
+        
+        
+    }
+}
