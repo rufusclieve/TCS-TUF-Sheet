@@ -1,0 +1,47 @@
+import java.util.*;
+
+class Main {
+    
+    public static void counts(String str) {
+        
+        HashSet<Character> set = new HashSet<>();
+        set.add('a');
+        set.add('e');
+        set.add('i');
+        set.add('o');
+        set.add('u');
+        
+        int n = str.length();
+        
+        int vowels = 0, consonants = 0, space = 0;
+        
+        for(int i = 0; i < n; i++) {
+            
+            char ch = Character.toLowerCase(str.charAt(i));
+            if(set.contains(ch)) {
+                vowels++;
+            }
+            else if(ch == ' ') {
+                space++;
+            }
+            else if (Character.isLetter(ch)){
+                consonants++;
+            }
+        }
+        
+        System.out.println("Vowels: " + vowels + " consonants: " + consonants + " Space: " + space);
+    }
+    public static void main(String[] args) {
+        
+        Scanner sc = new Scanner(System.in);
+        int testcases = sc.nextInt();
+        sc.nextLine();
+        
+        while(testcases-- > 0) {
+            String str = sc.nextLine();
+            counts(str);
+        }
+        
+        
+    }
+}
