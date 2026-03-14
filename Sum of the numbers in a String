@@ -1,0 +1,48 @@
+import java.util.*;
+
+
+class Codechef
+{
+    public static void getSum(String str) {
+        int n = str.length();
+        StringBuilder builder = new StringBuilder(); 
+        int sum = 0;
+        int i = 0;
+        
+        while(i < n) {
+            
+           if(Character.isDigit(str.charAt(i))) {
+               
+               while(i < n && Character.isDigit(str.charAt(i))) {
+                builder.append(str.charAt(i));
+                i++;
+               }
+               
+               sum += Integer.parseInt(builder.toString());
+               builder.setLength(0);
+           }
+           else {
+               i++;
+           }
+            
+        }
+        
+        System.out.println(sum);
+        
+        
+    }
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		
+		Scanner sc = new Scanner(System.in);
+		
+		int testcases = sc.nextInt();
+		sc.nextLine();
+		
+		while(testcases-- > 0 ) {
+		    String str = sc.nextLine();
+		    getSum(str);
+		}
+
+	}
+}
