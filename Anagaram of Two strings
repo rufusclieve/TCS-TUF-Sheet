@@ -1,0 +1,35 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class nonrepeatingchar {
+    public static void freqcount(String s1, String s2) {
+        
+        HashMap<Character, Integer> map1 = new HashMap<>(); // frequency of s1
+        HashMap<Character, Integer> map2 = new HashMap<>(); // frequency of s2
+        
+        // fill freq for s1
+        for (char ch : s1.toCharArray()) {
+            map1.put(ch, map1.getOrDefault(ch, 0) + 1);
+        }
+        
+        // fill freq for s2
+        for (char ch : s2.toCharArray()) {
+            map2.put(ch, map2.getOrDefault(ch, 0) + 1);
+        }
+        
+        // anagram check
+        if (map1.equals(map2)) {
+            System.out.println(s1 + " and " + s2 + " are Anagrams");
+        } else {
+            System.out.println(s1 + " and " + s2 + " are Not Anagrams");
+        }
+    }
+    
+    public static void main(String[] args) throws java.lang.Exception {
+        Scanner sc = new Scanner(System.in);
+        String s1 = sc.nextLine();
+        String s2 = sc.nextLine();
+        nonrepeatingchar.freqcount(s1, s2);
+    }
+}
