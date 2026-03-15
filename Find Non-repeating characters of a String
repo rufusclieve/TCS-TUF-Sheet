@@ -1,0 +1,38 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class nonrepeatingchar
+{
+    public static void freqcount(String s) {
+       
+       HashMap<Character, Integer> map = new HashMap<>();
+       
+       for(char ch : s.toCharArray()){
+           map.put(ch,map.getOrDefault(ch, 0) + 1);
+       }
+       
+       boolean found = false;
+       for(char ch : s.toCharArray()){
+           if(map.get(ch) == 1){
+               System.out.print(ch);
+               
+               found = true;
+           }
+       }
+       
+       if (!found) {
+            System.out.print("No non-repeating characters found");
+        }
+    }
+    public static void main(String[] args) throws java.lang.Exception
+    {
+        // your code goes here
+        Scanner sc = new Scanner(System.in);
+
+        String s = sc.nextLine();
+
+        nonrepeatingchar.freqcount(s);
+
+    }
+}
