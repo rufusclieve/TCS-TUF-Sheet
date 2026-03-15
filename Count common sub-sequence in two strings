@@ -1,0 +1,49 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Codechef
+{
+    static int[][] dp;
+    public static int solve(String s, String d, int i, int j) {
+        
+        if( i == 0 || j == 0) return 0;
+        
+        if(dp[i][j] != -1) return dp[i][j];
+        
+        if (s.charAt(i-1) == d.charAt(j-1)) {
+            dp[i][j] = solve(s, d, i-1, j)
+                       + solve(s, d, i, j-1)
+                       + 1;
+        } else {
+            dp[i][j] = solve(s, d, i-1, j)
+                       + solve(s, d, i, j-1)
+                       - solve(s, d, i-1, j-1);
+        }
+        
+        return dp[i][j];
+    }
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		// your code goes here
+		
+		Scanner sc = new Scanner(System.in);
+		
+		int t = sc.nextInt();
+		sc.nextLine();
+		
+		while(t-- > 0) {
+		    String str1 = sc.nextLine();
+		    String str2 = sc.nextLine();
+		    
+		    dp = new int[str1.length()+1][str2.length()+1];
+		    for(int[] row : dp ) {
+		        Arrays.fill(row,-1);
+		    }
+		    
+		    
+		    System.out.println(solve(str1,str2,str1.length(), str2.length()));
+		}
+
+	}
+}
