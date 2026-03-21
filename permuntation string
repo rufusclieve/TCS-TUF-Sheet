@@ -1,0 +1,43 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Codechef
+{
+    
+    public static void generate(char[] arr, boolean[] visited, StringBuilder str) {
+        
+        if(str.length() == arr.length) {
+            System.out.println(str.toString());
+            return;
+        }
+        
+        for(int i = 0; i < arr.length; i++) {
+            
+            if(visited[i]) continue;
+            
+            if(i > 0 && arr[i] == arr[i-1] && !visited[i-1]) continue;
+            
+            visited[i] = true;
+            str.append(arr[i]);
+            
+            generate(arr,visited,str);
+            
+            str.deleteCharAt(str.length() - 1);
+            visited[i] = false;
+        }
+    }
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		// your code goes here
+		Scanner sc = new Scanner(System.in);
+		String str = sc.nextLine();
+		
+		char[] arr = str.toCharArray();
+		
+		Arrays.sort(arr);
+		boolean[] visited = new boolean[arr.length];
+		generate(arr, visited, new StringBuilder());
+
+	}
+}
