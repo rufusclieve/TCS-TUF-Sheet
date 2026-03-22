@@ -1,0 +1,41 @@
+import java.util.*;
+
+class Codechef {
+    
+    public static void removeString(String[] s, String r) {
+        
+        boolean flag = false;
+        StringBuilder ans = new StringBuilder();
+        
+        for(String vare : s) { // this
+            
+            if(vare.equalsIgnoreCase(r)) {
+                flag = true;
+                continue;
+            }
+            
+            ans.append(vare).append(" "); // This is Rufus Roy
+        }
+        
+        if(!flag) {
+            System.out.println("-1");
+        }
+        else {
+            System.out.println(ans.toString());
+        }
+        
+        
+    }
+    
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        String orginal = sc.nextLine(); // This is Rufus Clieve Roy
+        String remove = sc.nextLine();
+        
+        String[] parts = orginal.split(" "); // This is Rufus Clieve Roy
+        
+        removeString(parts,remove);
+        
+    }
+}
