@@ -1,0 +1,26 @@
+import java.util.*;
+
+class Codechef {
+    
+    public static int generate(String s1, String s2, int i, int j) {
+        
+        if(i < 0 || j < 0) return 0;
+        
+        if(s1.charAt(i) == s2.charAt(j)) {
+            return 1 + generate(s1, s2, i-1, j) + generate(s1, s2, i, j-1);
+        }
+        
+        return generate(s1, s2, i-1, j) + 
+               generate(s1,s2,i,j-1) 
+               - generate(s1,s2,i-1,j-1);
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        String s1 = sc.nextLine();
+        String s2 = sc.nextLine();
+        
+        System.out.println(generate(s1,s2,s1.length()-1, s2.length()-1));
+        
+    }
+}
