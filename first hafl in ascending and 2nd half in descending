@@ -1,0 +1,24 @@
+import java.util.*;
+
+class Main {
+    public static void main(String[] args) {
+
+        int[] arr = {3, 2, 4, 1, 10, 30, 40, 20};
+        int n = arr.length;
+
+        // Step 1: Sort ascending
+        Arrays.sort(arr);
+
+        // Step 2: Reverse second half
+        for (int i = n/2, j = n-1; i < j; i++, j--) {
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+        }
+
+        // Print
+        for (int x : arr) {
+            System.out.print(x + " ");
+        }
+    }
+}
