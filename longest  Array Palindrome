@@ -1,0 +1,54 @@
+import java.util.*;
+
+class Codechef {
+
+    static void expand(int left, int right, int[] arr, int[] res) {
+        int n = arr.length;
+
+        while (left >= 0 && right < n && arr[left] == arr[right]) {
+            int currLength = right - left + 1;
+
+            if (currLength > res[1]) {
+                res[1] = currLength;
+                res[0] = left;
+            }
+
+            left--;
+            right++;
+        }
+    }
+
+    static int[] getLongestPal(int[] arr) {
+        int n = arr.length;
+        int[] res = {0, 0};
+
+        for (int i = 0; i < n; i++) {
+            expand(i, i, arr, res);
+            expand(i, i + 1, arr, res);
+        }
+
+        return Arrays.copyOfRange(arr, res[0], res[0] + res[1]);
+    }
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        // Input as string
+        String input = sc.nextLine();   // e.g. "1 2 3 2 1 5 6"
+
+        // Convert string → array
+        String[] parts = input.split(" ");
+        int[] arr = new int[parts.length];
+
+        for (int i = 0; i < parts.length; i++) {
+            arr[i] = Integer.parseInt(parts[i]);
+        }
+
+        // Apply logic
+        int[] ans = getLongestPal(arr);
+
+        // Output
+        System.out.println(Arrays.toString(ans));
+    }
+}
