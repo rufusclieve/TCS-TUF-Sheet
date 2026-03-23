@@ -1,0 +1,51 @@
+import java.util.*;
+
+class Codechef {
+
+    // Function to check if a number is palindrome
+    static boolean isPalindrome(int n) {
+        int rev = 0, temp = n;
+
+        while (n > 0) {
+            rev = rev * 10 + n % 10;
+            n /= 10;
+        }
+
+        return temp == rev;
+    }
+
+    // Function to find largest palindrome in array
+    static int largestPalindrome(int[] arr) {
+        int max = -1;
+
+        for (int num : arr) {
+            if (isPalindrome(num) && num > max) {
+                max = num;
+            }
+        }
+
+        return max;
+    }
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        // Input as string (TCS style)
+        String input = sc.nextLine();   // e.g. "121 2322 54545 999990"
+
+        // Convert string → int array
+        String[] parts = input.trim().split("\\s+");
+        int[] arr = new int[parts.length];
+
+        for (int i = 0; i < parts.length; i++) {
+            arr[i] = Integer.parseInt(parts[i]);
+        }
+
+        // Find result
+        int result = largestPalindrome(arr);
+
+        // Output
+        System.out.println(result);
+    }
+}
