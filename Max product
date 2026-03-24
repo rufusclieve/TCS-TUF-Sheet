@@ -1,0 +1,44 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Codechef
+{
+    
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		// your code goes here
+		Scanner sc = new Scanner(System.in);
+		
+		int n = sc.nextInt();
+		
+		int[] arr = new int[n];
+		
+		for(int i = 0; i < n; i++) {
+		    arr[i] = sc.nextInt();
+		}
+		
+		 int prev = 1;
+		 int suff = 1;
+		 int maxProd = 1;
+		 
+		 for(int i = 0; i < n; i++) {
+		     
+		     prev *= arr[i];
+		     suff *= arr[n - i - 1];
+		     
+		      if(prev == 0 || suff == 0) {
+		          prev = 1;
+		          suff = 1;
+		          
+		      } 
+		      
+		      maxProd = Math.max(maxProd,Math.max(prev,suff));
+		 }
+		
+		
+		System.out.println(maxProd);
+		
+
+	}
+}
