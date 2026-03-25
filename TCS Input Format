@@ -72,3 +72,9 @@ class Codechef
 
 	}
 }
+
+Multi testcases
+int t = sc.nextInt();
+while(t-- > 0) {
+    // handle one test case
+}
