@@ -1,0 +1,74 @@
+import java.util.*;
+import java.io.*;
+
+
+class Codechef
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+	    
+		Scanner sc = new Scanner(System.in);
+		
+		// Input Types:
+		// case 1 : Array size given 
+		int n = sc.nextInt();
+		sc.nextLine();
+		int[] arr = new int[n];
+		
+		for(int i = 0; i < n; i++) {
+		    arr[i] = sc.nextInt();
+		}
+		
+		// case 2 : Dynamic Array
+		int m = sc.nextInt();
+		sc.nextLine();
+		ArrayList<Integer> list = new ArrayList<>();
+		
+		for(int i = 0; i < m; i++) {
+		    list.add(sc.nextInt());
+		}
+		
+		
+		// case 3 : Array size not given and take input in space sperate values
+		String str = sc.nextLine(); // 12345
+		
+		//Note: sc.next() -> take input till space and further char is avoided
+		String[] parts = str.split(" "); // 1 2 3 4 5
+		ArrayList<Integer> list = new ArrayList<>();
+		
+		for(String num : parts) {
+		    int val = Integer.parseInt(num);
+		    list.add(val);
+		}
+		
+		// case 4 : Array size not given and take input in comma sperate values
+		String str = sc.nextLine(); // 12345
+		
+		//Note: sc.next() -> take input till space and further char is avoided
+		String[] parts = str.split(","); // 1,2,3,4,5
+		ArrayList<Integer> list = new ArrayList<>();
+		
+		for(String num : parts) {
+		    int val = Integer.parseInt(num);
+		    list.add(val);
+		}
+		
+		// case 5: Array size not given and take input in comma sperate values with bracket
+		String str = sc.nextLine(); // {12345}
+		
+		if(str.startsWith("{") && str.endsWith("}")) {
+		    str = str.substring(1,str.length - 1);
+		}
+		
+		String[] parts = str.split(","); // {,1,2,3,4,5,}
+		ArrayList<Integer> list = new ArrayList<>();
+		
+		for(String num : parts) {
+		    int val = Integer.parseInt(num);
+		    list.add(val);
+		}
+		
+		
+
+	}
+}
