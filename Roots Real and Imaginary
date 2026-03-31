@@ -1,0 +1,40 @@
+import java.io.*;
+
+class Codechef
+{
+    public static void main (String[] args) throws IOException
+    {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        
+        int a = Integer.parseInt(br.readLine());
+        int b = Integer.parseInt(br.readLine());
+        int c = Integer.parseInt(br.readLine());
+        
+        int d = (b * b) - (4 * a * c);
+        
+        if (d > 0) {
+            System.out.println("Two Real and Distinct Roots");
+            
+            double x1 = (-b + Math.sqrt(d)) / (2.0 * a);
+            double x2 = (-b - Math.sqrt(d)) / (2.0 * a);
+            
+            System.out.println("Root 1 = " + x1);
+            System.out.println("Root 2 = " + x2);
+        }
+        else if (d == 0) {
+            System.out.println("One Real Root");
+            
+            double x = (-b) / (2.0 * a);
+            System.out.println("Root = " + x);
+        }
+        else {
+            System.out.println("No real roots");
+            
+            double real = (-b) / (2.0 * a);
+            double imag = Math.sqrt(-d) / (2.0 * a);
+            
+            System.out.println("Root 1 = " + real + " + " + imag + "i");
+            System.out.println("Root 2 = " + real + " - " + imag + "i");
+        }
+    }
+}
